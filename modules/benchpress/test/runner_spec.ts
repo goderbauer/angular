@@ -11,7 +11,6 @@ import {
   xit,
 } from 'angular2/test_lib';
 import {
-  Runner,
   Sampler,
   SampleDescription,
   Validator,
@@ -23,6 +22,7 @@ import {
   SampleState
 } from 'benchpress/common';
 import {isBlank} from 'angular2/src/facade/lang';
+import {Runner} from 'benchpress/src/runner';
 import {Promise, PromiseWrapper} from 'angular2/src/facade/async';
 
 export function main() {
@@ -44,7 +44,7 @@ export function main() {
             [Injector]),
         bind(Metric).toFactory(() => new MockMetric(), []),
         bind(Validator).toFactory(() => new MockValidator(), []),
-        bind(WebDriverAdapter).toFactory(() => new MockWebDriverAdapter(), [])
+        bind(WebDriverAdapter).toFactory(() => new MockWebDriverAdapter(), []),
       ]);
       return runner;
     }

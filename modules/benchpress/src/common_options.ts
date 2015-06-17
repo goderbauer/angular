@@ -50,5 +50,6 @@ var _DEFAULT_BINDINGS = [
   bind(_PREPARE).toValue(false),
   bind(_MICRO_METRICS).toValue({}),
   bind(_NOW).toValue(() => DateWrapper.now()),
-  bind(_CAPTURE_FRAMES).toValue(false)
+  bind(_CAPTURE_FRAMES).toValue(false),
+  bind(_WRITE_FILE).toValue(null)
 ];
