@@ -84,12 +84,14 @@ export class TestabilityRegistry {
 
   getAllTestabilities(): List<Testability> { return MapWrapper.values(this._applications); }
 
-  findTestabilityInTree(elem: Node): Testability {
+  findTestabilityInTree(elem: Node, walkTree: boolean = true): Testability {
     if (elem == null) {
       return null;
     }
     if (this._applications.has(elem)) {
       return this._applications.get(elem);
+    } else if (!walkTree) {
+      return null
     }
     if (DOM.isShadowRoot(elem)) {
       return this.findTestabilityInTree(DOM.getHost(elem));
